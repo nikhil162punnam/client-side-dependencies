@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">  
+
+<head>
+    <script type="text/javascript">
+        function AddRowToInfo (description, value) {
+            if (value !== undefined) {
+                var infoTable = document.getElementById ("info");
+                var row = infoTable.insertRow (-1);
+                var cell = row.insertCell (-1);
+                cell.innerHTML = description;
+                cell.style.paddingRight = "10px";
+                cell = row.insertCell (-1);
+                cell.innerHTML = value;
+                cell.style.paddingLeft = "10px";
+            }
+        }
+
+        function GetVisitorInfo () {
+            AddRowToInfo ("Name of the browser (appName)", window.navigator.appName);
+            AddRowToInfo ("Name of the browser vendor (vendor)", window.navigator.vendor);
+            AddRowToInfo ("Code name of the browser (appCodeName)", window.navigator.appCodeName);
+            AddRowToInfo ("Engine of the browser (product)", window.navigator.product);
+            AddRowToInfo ("Build number of the browser engine (productSub)", window.navigator.productSub);
+            if (window.opera) {
+                AddRowToInfo ("Build number of the browser (buildNumber)", window.opera.buildNumber ());
+                AddRowToInfo ("Version number of the browser (version)", window.opera.version ());
+            }
+            AddRowToInfo ("Version and platform of the browser (appVersion)", window.navigator.appVersion);
+            AddRowToInfo ("Version of the browser given by the vendor (vendorSub)", window.navigator.vendorSub);
+            AddRowToInfo ("Minor version of the browser (appMinorVersion)", window.navigator.appMinorVersion);
+            AddRowToInfo ("Build identifier of the browser (buildID)", window.navigator.buildID);
+            AddRowToInfo ("User-agent request header (userAgent)", window.navigator.userAgent);
+            AddRowToInfo ("Language of the browser (language)", window.navigator.language);
+            AddRowToInfo ("Cookies are enabled (cookieEnabled)", window.navigator.cookieEnabled);
+
+            AddRowToInfo ("Operating system (platform)", window.navigator.platform);
+            if (window.navigator.language === undefined) {  // in Opera, the language, browserLanguage and userLanguage properties are equivalent
+                AddRowToInfo ("Language of the operating system's user interface (browserLanguage)", window.navigator.browserLanguage);
+                AddRowToInfo ("Regional and Language settings of the operating system (userLanguage)", window.navigator.userLanguage);
+            }
+            AddRowToInfo ("Language of the installed operating system (systemLanguage)", window.navigator.systemLanguage);
+            AddRowToInfo ("Class of CPU (cpuClass)", window.navigator.cpuClass);
+            AddRowToInfo ("Information about the OS and CPU (oscpu)", window.navigator.oscpu);
+            AddRowToInfo ("System is online (onLine)", window.navigator.onLine);
+        }
+    </script>
+</head>
+<body onload="GetVisitorInfo ();">
+    <table id="info" cellpadding="0px" cellspacing="0px" border="1px" style="empty-cells:show;">
+        <colgroup>
+            <col style="background-color: #e0a0b0;" />
+            <col />
+        </colgroup>
+        <tbody>
+        </tbody>
+    </table>
+</body>
+</html>  

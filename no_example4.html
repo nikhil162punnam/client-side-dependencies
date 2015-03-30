@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<header><title>Javascript Navigator Object Example</title>
+<script>
+result = window.navigator.javaEnabled();
+document.write("<h3> NavigatorPlugins.javaEnabled</h3><br/>");
+document.write("window.navigator.javaEnabled() : "+ result+"<br>");
+
+appName = window.navigator.appName;
+document.write("<h3>navigator.appName</h3><br/>");
+document.write("window.navigator.appName: "+appName);
+
+var L = navigator.plugins.length;
+document.write("<h3>navigator.plugins</h3><br/>");
+document.write(
+  L.toString() + " Plugin(s)<br>" +
+  "Name | Filename | description<br>"
+);
+
+for(var i = 0; i < L; i++) {
+  document.write(
+    navigator.plugins[i].name +
+    " | " +
+    navigator.plugins[i].filename +
+    " | " +
+    navigator.plugins[i].description +
+    " | " +
+    navigator.plugins[i].version +
+    "<br>"
+  );
+}
+
+platform = navigator.platform;
+document.write("<h3>navigator.platform</h3><br/>");
+document.write("navigator.platform: "+ platform);
+
+</script>
+</header>
+	<body>
+		
+	</body>
+</html>
