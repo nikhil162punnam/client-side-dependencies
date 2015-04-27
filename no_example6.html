@@ -1,0 +1,155 @@
+<html>
+<head>
+    <script type="text/javascript">
+        function DetectBrowser () {
+            var agent = navigator.userAgent.toLowerCase ();
+
+            var browser = "Unknown browser";
+            if (agent.search ("msie") > -1) {
+                browser = "Internet Explorer";
+            }
+            else {
+                if (agent.search ("firefox") > -1) {
+                    browser = "Firefox";
+                } 
+                else {
+                    if (agent.search ("opera") > -1) {
+                        browser = "Opera";
+                    } 
+                      else {
+                        if (agent.search ("safari") > -1) {
+                            if (agent.search ("chrome") > -1) {
+                                browser = "Google Chrome";
+                            } 
+                            else {
+                                browser = "Safari";
+                            }
+                        }
+                    }
+                }
+            }
+            
+            alert (browser);
+        }
+
+    function ie_ver(){  
+        var iev=0;
+        var ieold = (/MSIE (\d+\.\d+);/.test(navigator.userAgent));
+        var trident = !!navigator.userAgent.match(/Trident\/7.0/);
+        var rv=navigator.userAgent.indexOf("rv:11.0");
+
+        if (ieold) iev=new Number(RegExp.$1);
+        if (navigator.appVersion.indexOf("MSIE 10") != -1) iev=10;
+        if (trident&&rv!=-1) iev=11;
+        alert(iev);
+        //document.write("Return status : "+ iev);
+        //return iev;         
+    }
+
+function getInternetExplorerVersion()
+{
+  var rv = -1;
+  if (navigator.appName == 'Microsoft Internet Explorer')
+  {
+    document.write("yuppy!! Running 1");
+    var ua = navigator.userAgent;
+    var re  = new RegExp("MSIE ([0-9]{1,}[\.0-9]{0,})");
+    if (re.exec(ua) != null)
+      rv = parseFloat( RegExp.$1 );
+  }
+  else if (navigator.appName == 'Netscape')
+  {
+    document.write("yuppy!! Running 2");
+    var ua = navigator.userAgent;
+    var re  = new RegExp("Trident/.*rv:([0-9]{1,}[\.0-9]{0,})");
+    if (re.exec(ua) != null)
+      rv = parseFloat( RegExp.$1 );
+  }
+  //alert(rv);
+  document.write("Status of browser 2: "+ rv);
+  //return rv;
+}
+
+           function GetCPU () {
+            var output = document.getElementById ("output");
+            output.innerHTML = "Information about the OS and CPU: " + navigator.oscpu;
+            output.innerHTML += "<br />The class of CPU: " + navigator.cpuClass;
+            output.innerHTML += "<br />System platform: " + navigator.platform;
+        }
+
+    function getIEVersion() {
+    var match = navigator.userAgent.match(/(?:MSIE |Trident\/.*; rv:)(\d+)/);
+    var sample=match ? parseInt(match[1]) : undefined;
+    alert("returnGetIE :"+sample);
+    //return match ? parseInt(match[1]) : undefined;
+    if (navigator.userAgent.indexOf('MSIE') !== -1 || navigator.appVersion.indexOf('Trident/') > 0) {
+   // MSIE
+   alert("MSIE");
+}
+}
+
+
+function osVersion(){
+
+    var OSName = "Unknown";
+if (window.navigator.userAgent.indexOf("Windows NT 6.2") != -1) OSName="Windows 8";
+if (window.navigator.userAgent.indexOf("Windows NT 6.1") != -1) OSName="Windows 7";
+if (window.navigator.userAgent.indexOf("Windows NT 6.0") != -1) OSName="Windows Vista";
+if (window.navigator.userAgent.indexOf("Windows NT 5.1") != -1) OSName="Windows XP";
+if (window.navigator.userAgent.indexOf("Windows NT 5.0") != -1) OSName="Windows 2000";
+if (window.navigator.userAgent.indexOf("Mac")!=-1) OSName="Mac/iOS";
+if (window.navigator.userAgent.indexOf("X11")!=-1) OSName="UNIX";
+if (window.navigator.userAgent.indexOf("Linux")!=-1) OSName="Linux";
+//     var OSName="Unknown OS";
+// if (navigator.appVersion.indexOf("Win")!=-1) OSName="Windows";
+// if (navigator.appVersion.indexOf("Mac")!=-1) OSName="MacOS";
+// if (navigator.appVersion.indexOf("X11")!=-1) OSName="UNIX";
+// if (navigator.appVersion.indexOf("Linux")!=-1) OSName="Linux";
+
+ alert('Your OS: '+OSName);
+}
+ 
+ function architecture(){
+    if (navigator.userAgent.indexOf("WOW64") != -1 || 
+    navigator.userAgent.indexOf("Win64") != -1 ){
+   alert("This is a 64 bit OS");
+} else {
+   alert("Not a 64 bit OS");
+}
+ }
+
+ function WriteToFile(passForm) {
+    var fso = new ActiveXObject("Scripting.FileSystemObject");
+    var a = fso.CreateTextFile("c:\\testfile.txt",8,true,0);
+    a.WriteLine("This is a test.");
+    a.Close();
+
+    /*
+    set fso = CreateObject("Scripting.FileSystemObject");  
+    set s = fso.CreateTextFile("C:\test.txt", True);
+    s.writeline("HI");
+    s.writeline("Bye");
+    s.writeline("-----------------------------");
+    s.Close();*/
+ }
+
+         </script>
+</head>
+<body>
+    <button onclick="DetectBrowser ();">Detect Browser!</button>
+    <button onclick="getInternetExplorerVersion();">getInternetExplorerVersion !!</button>
+    <button onclick="GetCPU ();">GetCPU !!</button>
+    <button onclick="getIEVersion();">getIEVersion !!</button>
+    <button onclick="osVersion();"> OS Version !!</button>
+        <button onclick="architecture();"> OS Architecture !!</button>
+    <div id="output"></div>
+    <form onSubmit="WriteToFile(this)">
+        Type your first name:
+        <input type="text" name="FirstName" size="20">
+        <br>Type your last name:
+        <input type="text" name="LastName" size="20">
+        <br>
+        <input type="submit" value="submit">
+    </form> 
+</body>
+</html>

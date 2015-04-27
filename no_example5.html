@@ -1,0 +1,27 @@
+<html>
+<head>
+    <script type="text/javascript">
+        function OnClick (event) {          
+            if ('target' in event) {    // all browsers except IE before version 9
+                var firedOn = event.target;
+            }
+            else {
+                if ('srcElement' in event) {    // IE before version 9  
+                    var firedOn = event.srcElement;
+                }
+                else {
+                    alert ("Your browser does not support neither the srcElement nor the target properties.");
+                    return;
+                }
+            }
+            
+            alert ("A click event has occurred on the " + firedOn.tagName + " element.");
+        }
+    </script> 
+    </head>
+<body onclick="OnClick (event);">
+    <div>Click on this text first!</div>
+    <br />
+    <button>Click on this button next!</button>
+</body>
+</html>

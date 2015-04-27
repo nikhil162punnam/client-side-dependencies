@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<paintings>
+	<painting>
+		<title>Painting 1</title>
+		<artist>Ambika</artist>
+		<image>image1.jpg</image>
+	</painting>
+	<painting>
+		<title>Painting 2</title>
+		<artist>Sowmya</artist>
+		<image>image2.jpg</image>
+	</painting>
+	<painting>
+		<title>Painting 3</title>
+		<artist>Amulya</artist>
+		<image>image3.jpg</image>
+	</painting>
+</paintings>

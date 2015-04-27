@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head><title>Javascript JQuery Example</title>
+<script type="text/javascript" src="jquery/jquery.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$.ajax({
+			type:"GET",
+			url: "data.xml",
+			dataType:"xml",
+			success: xmlParser
+		});
+	});
+
+	function xmlParser(xml){
+		$('#load').fadeOut();
+		$(xml).find("painting").each(function(){
+			$('#container').append('<div class="painting"><img src="images/' + $(this).find("image").text() +'" width="200" height="225" alt="'+ $(this).find("title").text() +'"/><br/><div class="title">' + $(this).find("title").text()+ '<br/>$'+ $(this).find("price").text() +'</div></div>');
+			$(".painting").fadeIn(1000);
+		});
+	}
+</script>
+</head>
+	<body>
+		<h1 id="title"> Javascript Jquery Example</h1>
+		<p id="myCustomMethod">hjhjjkj jhjkjk jhjkj</p>
+		<p id="first"><span> Now is the time to change the world</span></p>
+		<div id="container"></div>
+		</body>
+</html>

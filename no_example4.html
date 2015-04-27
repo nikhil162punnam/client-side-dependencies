@@ -2,13 +2,11 @@
 <html>
 <header><title>Javascript Navigator Object Example</title>
 <script>
-result = window.navigator.javaEnabled();
-document.write("<h3> NavigatorPlugins.javaEnabled</h3><br/>");
-document.write("window.navigator.javaEnabled() : "+ result+"<br>");
-
-appName = window.navigator.appName;
-document.write("<h3>navigator.appName</h3><br/>");
-document.write("window.navigator.appName: "+appName);
+var dependency_List=[];
+var count=0;
+// result = window.navigator.javaEnabled();
+// document.write("<h3> NavigatorPlugins.javaEnabled</h3><br/>");
+// document.write("window.navigator.javaEnabled() : "+ result+"<br>");
 
 var L = navigator.plugins.length;
 document.write("<h3>navigator.plugins</h3><br/>");
@@ -18,6 +16,10 @@ document.write(
 );
 
 for(var i = 0; i < L; i++) {
+  var sample=navigator.plugins[i].name;
+  if(sample.match(/flash/ig) || sample.match(/java/ig)){
+  //document.write("<br/>*****==========Begining==========*****<br/>");
+  document.write("<br/>"+i+"  ");
   document.write(
     navigator.plugins[i].name +
     " | " +
@@ -26,17 +28,18 @@ for(var i = 0; i < L; i++) {
     navigator.plugins[i].description +
     " | " +
     navigator.plugins[i].version +
-    "<br>"
+    "<br/>"
   );
+  dependency_List[count]=navigator.plugins[i].name;
+  count++;
+  }
+  else
+    void(0);
 }
-
-platform = navigator.platform;
-document.write("<h3>navigator.platform</h3><br/>");
-document.write("navigator.platform: "+ platform);
+  document.write("dependency_List : "+dependency_List);
 
 </script>
 </header>
 	<body>
-		
 	</body>
 </html>
