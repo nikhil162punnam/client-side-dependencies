@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<dependencieList>
+	<dependencies>
+		<pluginname>OpenJDK Runtime Environment</pluginname>
+		<version>1.7.0_65</version>
+		<description></description>
+	</dependencies>
+	<dependencies>
+		<pluginname>Adobe Flash Player</pluginname>
+		<version>17.0 r0</version>
+		<description></description>
+	</dependencies>
+</dependencieList>
